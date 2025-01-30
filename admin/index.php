@@ -1,12 +1,12 @@
-<!-- admin dashboard -->
-<?php 
-// admin/index.php - Admin Dashboard
+<?php
+include '../includes/session.php';
+include '../includes/db.php';
 
+if (!isAdmin()) {
+    header('Location: ../index.php');
+    exit();
+}
 
-include '../includes/db.php'; // Include the database connection
-include '../includes/session.php'; // Check if user is logged in and has admin privileges
-
-// Get stats
 $postsCount = $conn->query("SELECT COUNT(*) FROM posts")->fetchColumn();
 $usersCount = $conn->query("SELECT COUNT(*) FROM users")->fetchColumn();
 $categoriesCount = $conn->query("SELECT COUNT(*) FROM categories")->fetchColumn();
@@ -58,7 +58,7 @@ $categoriesCount = $conn->query("SELECT COUNT(*) FROM categories")->fetchColumn(
                 <li><a href="manage_posts.php">View and Edit Posts</a></li>
                 <li><a href="manage_users.php">Manage Users</a></li>
                 <li><a href="manage_categories.php">Manage Categories</a></li>
-                <li><a href="create_post.php">Create New Post</a></li>
+                <li><a href="../pages/create_post.php">Create New Post</a></li>
                 <li><a href="create_category.php">Add New Category</a></li>
             </ul>
         </div>

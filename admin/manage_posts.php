@@ -76,7 +76,7 @@ if (isset($_GET['delete'])) {
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <a href="create_post.php">Create New Post</a>
+        <a href="../pages/create_post.php">Create New Post</a>
     </main>
 
     <footer>

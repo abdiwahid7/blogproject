@@ -7,7 +7,7 @@ include 'session.php';
     </div>
     <nav>
         <ul>
-            <li><a href="/Blogproject/index.php">Home</a></li>
+            <!-- <li><a href="/Blogproject/index.php">Home</a></li> -->
             <?php if (isLoggedIn()): ?>
                 <li><a href="/Blogproject/pages/create_post.php">Create Post</a></li>
                 <li><a href="/Blogproject/auth/logout.php">Logout</a></li>
