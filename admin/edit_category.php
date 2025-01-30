@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <main>
     <h2>Edit Category</h2>
-    <form method="POST">
+    <form method="POST" class="form-container">
         <label for="name">Category Name:</label>
         <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($category['name']); ?>" required>
         <br>

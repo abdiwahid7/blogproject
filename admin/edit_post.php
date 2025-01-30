@@ -41,7 +41,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <main>
     <h2>Edit Post</h2>
-    <form method="POST">
+    <form method="POST" class="form-container">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($post['title']); ?>" required>
         <br>

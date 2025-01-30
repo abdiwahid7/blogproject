@@ -43,21 +43,34 @@ $categories = $conn->query("SELECT * FROM categories")->fetchAll(PDO::FETCH_ASSO
 
 <main>
     <h2>Add New Category</h2>
-    <form method="POST">
+    <form method="POST" class="form-container">
         <input type="text" name="category_name" placeholder="Category Name" required>
         <button type="submit" name="add_category">Add Category</button>
     </form>
 
     <h2>Existing Categories</h2>
-    <ul>
-        <?php foreach ($categories as $category): ?>
-            <li>
-                <?php echo htmlspecialchars($category['name']); ?>
-                <a href="edit_category.php?id=<?php echo $category['id']; ?>">Edit</a>
-                <a href="?delete=<?php echo $category['id']; ?>" onclick="return confirm('Are you sure you want to delete this category?');">Delete</a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($categories as $category): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($category['id']); ?></td>
+                    <td><?php echo htmlspecialchars($category['name']); ?></td>
+                    <td>
+                        <a href="edit_category.php?id=<?php echo $category['id']; ?>">Edit</a>
+                        <a href="?delete=<?php echo $category['id']; ?>" onclick="return confirm('Are you sure you want to delete this category?');">Delete</a>
+                        <a href="view_category.php?id=<?php echo $category['id']; ?>">View</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </main>
 
 <?php include '../includes/footer.php'; ?>

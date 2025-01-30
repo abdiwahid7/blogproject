@@ -34,8 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<?php include '../includes/header.php'; ?>
+
+<main>
     <h2>Edit User</h2>
-    <form method="POST">
+    <form method="POST" class="form-container">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required>
         <br>
@@ -50,5 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br>
         <button type="submit">Update User</button>
     </form>
+</main>
+
+<?php include '../includes/footer.php'; ?>
 </body>
 </html>
