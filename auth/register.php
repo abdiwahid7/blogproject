@@ -5,39 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="/Blogproject/css/style.css">
-    </head>
+</head>
 <body>
-
+<?php include '../includes/header.php'; ?>
 <div class="register-container">
-    <h2>Register</h2>
-
-    <!-- Display error message if any -->
-    <?php if (!empty($error)): ?>
-        <p class="error"><?php echo $error; ?></p>
-    <?php endif; ?>
-
     <form method="POST" action="">
-        <br>
-        <label>Username:</label>
-        <input type="text" name="username" placeholder="Enter username" required>
-
-        <br><br>
-        <label>Email:</label>
-        <input type="email" name="email" placeholder="Enter email" required>
-
-        <br><br>
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="Enter password" required>
-
-        <br><br>
-        <button type="submit">Register</button>
-    </form> <p>Already have an account? <a href="login.php">Login here</a></p>
-    
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: center;"><h2>Register</h2></td>
+            </tr>
+            <!-- Display error message if any -->
+            <?php if (!empty($error)): ?>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><p class="error"><?php echo $error; ?></p></td>
+                </tr>
+            <?php endif; ?>
+            <tr>
+                <td><label for="username">Username:</label></td>
+                <td><input type="text" id="username" name="username" placeholder="Enter username" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" placeholder="Enter email" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" placeholder="Enter password" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><button type="submit">Register</button></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><p>Already have an account? <a href="login.php">Login here</a></p></td>
+            </tr>
+        </table>
+    </form>
 </div>
 
 </body>
 </html>
-
 
 <?php
 // Include database connection
@@ -84,5 +90,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
-
