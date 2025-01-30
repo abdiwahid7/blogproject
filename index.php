@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'includes/db.php'; // Include database connection
+include 'includes/session.php'; // Include session management
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,25 +12,12 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<header>
-    <div class="logo">
-        <h1>My Blog</h1>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="auth/register.php">Sign Up</a></li>
-            <li><a href="auth/login.php">Login</a></li>
-            <li><a href="pages/dashboard.php">Dashboard</a></li>
-        </ul>
-    </nav>
-</header>
+<?php include 'includes/header.php'; ?>
 
 <main>
     <h2>Recent Posts</h2>
     <ul>
         <?php
-        include 'includes/db.php'; // Include database connection
-
         // Fetch recent posts
         $stmt = $conn->query("SELECT id, title, created_at FROM posts ORDER BY created_at DESC LIMIT 5");
         $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -37,8 +29,6 @@
     </ul>
 </main>
 
-<footer>
-    <p>&copy; 2025 My Blog. All Rights Reserved.</p>
-</footer>
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

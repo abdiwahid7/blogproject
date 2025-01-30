@@ -7,16 +7,16 @@ include 'session.php';
     </div>
     <nav>
         <ul>
-            <li><a href="../index.php">Home</a></li>
+            <li><a href="/Blogproject/index.php">Home</a></li>
             <?php if (isLoggedIn()): ?>
-                <li><a href="../pages/create_post.php">Create Post</a></li>
-                <li><a href="../auth/logout.php">Logout</a></li>
+                <li><a href="/Blogproject/pages/create_post.php">Create Post</a></li>
+                <li><a href="/Blogproject/auth/logout.php">Logout</a></li>
                 <?php if (isAdmin()): ?>
-                    <li><a href="../admin/index.php">Admin Panel</a></li>
+                    <li><a href="/Blogproject/admin/index.php">Admin Panel</a></li>
                 <?php endif; ?>
             <?php else: ?>
-                <li><a href="../auth/register.php">Sign Up</a></li>
-                <li><a href="../auth/login.php">Login</a></li>
+                <li><a href="/Blogproject/auth/register.php">Sign Up</a></li>
+                <li><a href="/Blogproject/auth/login.php">Login</a></li>
             <?php endif; ?>
         </ul>
     </nav>
